@@ -80,43 +80,25 @@ public class Test_2105_디저트카페 {
 			boolean possible = true;
 			nr = r;
 			nc = c;
-			for (int i = 1; i < len1; i++) {
-				nr += dir[2][0];
-				nc += dir[2][1];
-				if(nr<0 || nc<0 || nr>=N || nc>=N || visit[map[nr][nc]]) {
-					possible = false;
-					break;
+			for (int i = 2; i < 4; i++) {
+				for (int j = 1; j < ((i==2) ? len1 : len2); j++) {
+					nr += dir[i][0];
+					nc += dir[i][1];
+					if(nr<0 || nc<0 || nr>=N || nc>=N || visit[map[nr][nc]]) {
+						possible = false;
+						break;
+					}
+					visit[map[nr][nc]] = true;
+					list.add(map[nr][nc]);
 				}
-				visit[map[nr][nc]] = true;
-				list.add(map[nr][nc]);
 			}
-			if(!possible) {
-				clear();
-				return;
+			if(possible) {
+				result = Math.max(result, len1+len2);
 			}
-			for (int i = 1; i < len2; i++) {
-				nr += dir[3][0];
-				nc += dir[3][1];
-				if(nr<0 || nc<0 || nr>=N || nc>=N || visit[map[nr][nc]]) {
-					possible = false;
-					break;
-				}
-				visit[map[nr][nc]] = true;
-				list.add(map[nr][nc]);
+			Iterator<Integer> a = list.iterator();
+			while(a.hasNext()) {
+				visit[a.next()] = false;
 			}
-			if(!possible) {
-				clear();
-				return;
-			}
-			result = Math.max(result, len1+len2);
-			clear();
-		}
-	}
-
-	private static void clear() {
-		Iterator<Integer> a = list.iterator();
-		while(a.hasNext()) {
-			visit[a.next()] = false;
 		}
 	}
 }
