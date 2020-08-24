@@ -19,7 +19,6 @@ public class KAKAOBLINDRECRUITMENT_2020_문자열압축 {
 				if(len > result) break;
 				String str2 = s.substring(pos, pos+i);	// 그 다음 문자열
 				int repeat = 1;
-//				System.out.println("new - str : " + str +" str2 : " + str2);
 				while(str.equals(str2)) {
 					// 같다는 전재조건
 					// 같으니까 반복수 +1
@@ -31,10 +30,8 @@ public class KAKAOBLINDRECRUITMENT_2020_문자열압축 {
 				}
 				// 2. 반복되지 않을 때는 반복되지 않은 지점이 기준이 된다!
 				// 일단 현재 기준 문자열의 길이와 반복한 숫자의 길이를 더한다.
-//				System.out.println("repeat : " + repeat + " str: " + str + " str2 : " + str2);
 				if(repeat != 1) len += Integer.toString(repeat).length();
 				// 문자열의 길이를 초과한 경우
-				System.out.println("repeat : " + repeat + " str : " + str + " i : " + i + " len : " + len + " pos : " + pos);
 				if(pos + i <= s.length()) {
 					len += i;
 					str = s.substring(pos, pos+i);
@@ -43,7 +40,6 @@ public class KAKAOBLINDRECRUITMENT_2020_문자열압축 {
 			}
 			// 3. 그리고 비교할 대상이 없는 만큼 또 추가한다.
 			len += s.length() - pos;
-//			System.out.println(len);
 			result = Math.min(result, len);
 		}
 		return result;
