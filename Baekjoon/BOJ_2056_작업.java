@@ -49,21 +49,12 @@ public class BOJ_2056_작업 {
 				cost[cur]--;
 				// 작업이 완료되면
 				if(cost[cur] == 0) {
-//					System.out.println(" 완료된 작업 : " + cur + " 현재 시간 : " + result);
 					cnt++;
 					for (int j = 0; j < task[cur].size(); j++) {
 						arr[task[cur].get(j)]--;
 					}
-					// 작업이 완료되지 않았으면
 				} else clear.add(cur);
 			}
-			// 클리어한거 선수과정인거 계산
-//			while(!clear.isEmpty()) {
-//				int cur = clear.poll();
-//				for (int i = 0; i < task[cur].size(); i++) {
-//					arr[task[cur].get(i)]--;
-//				}
-//			}
 			result++;
 		}
 		System.out.println(result);
